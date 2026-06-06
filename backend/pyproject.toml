@@ -1,0 +1,27 @@
+[project]
+name = "smart-expense-tracker"
+version = "0.1.0"
+description = "Smart Expense Tracking System (FastAPI + PostgreSQL)"
+requires-python = ">=3.10"
+
+dependencies = [
+  "fastapi>=0.100",
+  "uvicorn[standard]>=0.20",
+  "SQLAlchemy>=2.0",
+  "psycopg2-binary>=2.9",
+  "pydantic-settings>=2.0",
+  "python-jose[cryptography]>=3.3",
+  "passlib[bcrypt]>=1.7",
+  "alembic>=1.11",
+  "python-multipart>=0.0.9"
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.setuptools]
+packages = ["app"]
+
