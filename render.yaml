@@ -2,14 +2,18 @@ services:
   - type: web
     name: smart-expense-tracker-backend
     runtime: python
+    pythonVersion: 3.10
     plan: free
     buildCommand: pip install -r backend/requirements.txt && cd backend && alembic upgrade head
-    startCommand: bash start.sh
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    workingDirectory: backend
     envVars:
       - key: DATABASE_URL
         scope: shared
       - key: SECRET_KEY
         scope: shared
+      - key: PYTHONUNBUFFERED
+        value: "1"
     repo: https://github.com/yourusername/your-repo  # Update this
 
   - type: web
